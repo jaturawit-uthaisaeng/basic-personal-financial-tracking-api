@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package personal_financial_tracking;
+
+option go_package = "grpc/protocol_buffer";
+
+
+service PersonalFinancialTrackingService {
+}
+
+// protoc \
+//   --go_out=. \
+//   --go-grpc_out=. \
+//   service/module/delivery/grpc/model/tracking.proto
+
+
