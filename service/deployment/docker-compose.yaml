@@ -1,0 +1,19 @@
+version: '3.9'
+
+services:
+  personal-financial-tracking-svc:
+    build:
+      context: ../..       # context = basic-personal-financial-tracking-api/
+      dockerfile: service/build/Dockerfile  # path ของ Dockerfile จาก context
+    container_name: personal-financial-tracking-svc
+    volumes:
+      - /go/pkg/mod
+    ports:
+      - '8081:8080'
+    restart: 'unless-stopped'
+    environment:
+      API_ENV: 'LOCAL'
+networks:
+  default:
+    external:
+      name: personal-financial-tracking-network

@@ -1,6 +1,7 @@
 package restful
 
 import (
+	"basic-personal-financial-tracking-api/service/common"
 	"basic-personal-financial-tracking-api/service/module/domain"
 
 	"github.com/gin-gonic/gin"
@@ -12,10 +13,10 @@ type newRestfulHandler struct {
 
 func NewHandler(restful *gin.Engine, usecase domain.PersonalFinancialTrackingUseCase) {
 
-	// restfulHandler := newHandler{usecase: usecase}
+	restfulHandler := newRestfulHandler{usecase: usecase}
 
-	// api := restful.Group(common.APIGroup)
-	// {
-
-	// }
+	api := restful.Group(common.APIGroup)
+	{
+		api.GET("/personal-financial-trackings", restfulHandler.GetPersonalFinancialTrackingsDelivery)
+	}
 }
